@@ -75,7 +75,7 @@ class Game {
 
                 this.player.playerCollision()
                 // let score = document.querySelector('side').innerHTML
-                console.log(game.player.score)
+
                 return true
 
             }

@@ -43,4 +43,28 @@ class Player {
 
         this.velocity = - 8
     }
+
+    moveLeft() {
+        if (this.x <= 0) {
+            this.x = 0
+        } else {
+            this.x -= 2
+            console.log('moving left')
+
+        }
+
+    }
+
+
+    moveRight() {
+        if (this.x >= 650) {
+
+            this.x = 700
+        } else {
+            this.x += 2
+            console.log('moving right')
+
+        }
+
+    }
 }

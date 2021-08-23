@@ -18,6 +18,14 @@ function setup() {
 
 function draw() {
     game.drawGame()
+    if (keyIsDown(65)) {
+
+        game.player.moveLeft()
+    }
+    if (keyIsDown(68)) {
+
+        game.player.moveRight()
+    }
 }
 
 function keyPressed() {
@@ -27,4 +35,7 @@ function keyPressed() {
 
         game.player.jump()
     }
+
+
+
 }
