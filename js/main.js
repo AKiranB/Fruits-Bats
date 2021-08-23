@@ -19,3 +19,12 @@ function setup() {
 function draw() {
     game.drawGame()
 }
+
+function keyPressed() {
+
+
+    if (keyCode === 32) {
+
+        game.player.jump()
+    }
+}

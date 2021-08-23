@@ -3,12 +3,13 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: "Spartan", sans-serif;
+    font-family: 'Cinzel', serif;
     background-color: black;
   }
 
 
   h1{
 
-    color:white
+    color:white;
+  
   }
