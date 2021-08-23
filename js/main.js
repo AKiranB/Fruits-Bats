@@ -1,9 +1,21 @@
 const game = new Game();
 
-function preLoad() { }
 
 
-function setup() { }
+function preload() {
 
 
-function draw() { }
+    game.preLoadGame();
+}
+
+function setup() {
+
+    createCanvas(700, 700);
+    game.setupGame()
+}
+
+
+
+function draw() {
+    game.drawGame()
+}
