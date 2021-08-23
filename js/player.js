@@ -9,9 +9,13 @@ class Player {
         this.x = 0
         this.y = 700 - this.height
         this.playerImage = game.playerImgRun
-        // this.score = 600
+        this.score = 10
     }
 
+    playerCollision() {
+
+        this.playerImage = game.playerSecondAttack
+    }
 
     draw() {
 
@@ -31,6 +35,7 @@ class Player {
             this.height = 150
         }
         image(this.playerImage, this.x, this.y, this.width, this.height)
+
     }
 
 

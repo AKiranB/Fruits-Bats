@@ -9,7 +9,7 @@ class Game {
 
         this.background = new Background();
         this.player = new Player();
-        // this.fruit = new Fruits();
+
     }
 
 
@@ -17,8 +17,8 @@ class Game {
     preLoadGame() {
 
         this.backgroundImg = [
-            // { src: loadImage('../assets/background/Hills-Layer-01.png'), x: 0, speed: 0 },
-            { src: loadImage('../assets/background/sky.png'), x: 0, speed: 0 },
+            { src: loadImage('../assets/background/Hills-Layer-01.png'), x: 0, speed: 0 },
+            // { src: loadImage('../assets/background/sky.png'), x: 0, speed: 0 },
             { src: loadImage('../assets/background/Hills-Layer-02.png'), x: 0, speed: 0.8 },
             { src: loadImage('../assets/background/castle.png'), x: 5, speed: 0.8 },
             { src: loadImage('../assets/background/Hills-Layer-03.png'), x: 0, speed: 1.7 },
@@ -31,6 +31,7 @@ class Game {
 
         this.playerImgRun = loadImage('../assets/character/running-girl-gif.gif')
         this.playerImgIdle = loadImage('../assets/character/anime-girl-attack2.gif')
+        this.playerSecondAttack = loadImage('../assets/character/anime-girl-attack.gif')
 
         this.fruitsImg = [
 
@@ -39,6 +40,7 @@ class Game {
             { src: loadImage('../assets/character/fruit3.png') },
             { src: loadImage('../assets/character/fruit4.png') },
         ]
+
 
 
     }
@@ -60,6 +62,23 @@ class Game {
         this.fruits.forEach(fruit => {
 
             fruit.draw()
+
+        })
+
+
+        this.fruits = this.fruits.filter((fruit) => {
+
+            if (fruit.collision(this.player) || fruit.x < 0) {
+
+                return false
+            } else {
+
+                this.player.playerCollision()
+                // let score = document.querySelector('side').innerHTML
+                console.log(game.player.score)
+                return true
+
+            }
 
         })
 
