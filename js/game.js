@@ -17,28 +17,29 @@ class Game {
     preLoadGame() {
 
         this.backgroundImg = [
-            { src: loadImage('../assets/background/Hills-Layer-01.png'), x: 0, speed: 0 },
+            { src: loadImage('assets/background/Hills-Layer-01.png'), x: 0, speed: 0 },
             // { src: loadImage('../assets/background/sky.png'), x: 0, speed: 0 },
-            { src: loadImage('../assets/background/Hills-Layer-02.png'), x: 0, speed: 0.8 },
-            { src: loadImage('../assets/background/castle.png'), x: 5, speed: 0.8 },
-            { src: loadImage('../assets/background/Hills-Layer-03.png'), x: 0, speed: 1.7 },
-            { src: loadImage('../assets/background/Hills-Layer-04.png'), x: 0, speed: 3 },
-            { src: loadImage('../assets/background/Hills-Layer-06.png'), x: 0, speed: 5 },
-            { src: loadImage('../assets/background/Hills-Layer-05.png'), x: 0, speed: 4 }
+            { src: loadImage('assets/background/Hills-Layer-02.png'), x: 0, speed: 0.8 },
+            { src: loadImage('assets/background/castle.png'), x: 5, speed: 0.8 },
+            { src: loadImage('assets/background/Hills-Layer-03.png'), x: 0, speed: 1.7 },
+            { src: loadImage('assets/background/Hills-Layer-04.png'), x: 0, speed: 3 },
+            { src: loadImage('assets/background/Hills-Layer-06.png'), x: 0, speed: 5 },
+            { src: loadImage('assets/background/Hills-Layer-05.png'), x: 0, speed: 4 }
 
         ]
 
 
-        this.playerImgRun = loadImage('../assets/character/running-girl-gif.gif')
-        this.playerImgJump = loadImage('../assets/character/anime-girl-attack2.gif')
-        this.playerSecondAttack = loadImage('../assets/character/anime-girl-attack.gif')
+        this.playerImgRun = loadImage('assets/character/running-girl-gif.gif')
+        this.playerImgRunLeft = loadImage('assets/character/running-girl-gif-inverted.gif')
+        this.playerImgJump = loadImage('assets/character/anime-girl-attack2.gif')
+        this.playerSecondAttack = loadImage('assets/character/anime-girl-attack.gif')
 
         this.fruitsImg = [
 
 
-            { src: loadImage('../assets/character/fruit2.png') },
-            { src: loadImage('../assets/character/fruit3.png') },
-            { src: loadImage('../assets/character/fruit4.png') },
+            { src: loadImage('assets/character/fruit2.png') },
+            { src: loadImage('assets/character/fruit3.png') },
+            { src: loadImage('assets/character/fruit4.png') },
         ]
 
 
@@ -74,8 +75,8 @@ class Game {
 
             } else {
 
-                this.player.playerCollision()
-                // let score = document.querySelector('side').innerHTML
+
+
 
                 return true
 

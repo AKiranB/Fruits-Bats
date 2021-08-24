@@ -23,7 +23,7 @@ class Fruits {
         let playerX = playerInfo.x + playerInfo.width / 2
         let playerY = playerInfo.y + playerInfo.height / 2
 
-        if (dist(fruitX, fruitY, playerX, playerY) > 35) {
+        if (dist(fruitX, fruitY, playerX, playerY) > 50) {
             return false
         } else {
 

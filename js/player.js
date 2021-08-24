@@ -12,10 +12,6 @@ class Player {
         this.score = 10
     }
 
-    playerCollision() {
-
-        this.playerImage = game.playerSecondAttack
-    }
 
     draw() {
 
@@ -25,15 +21,25 @@ class Player {
             this.y = 700 - this.height
         }
         if (this.y < 700 - this.height) {
+            game.fruits.forEach((fruit) => {
+                if (!fruit.collision(game.player) && this.y < 700 - this.height) {
+                    this.playerImage = game.playerImgJump
+                    this.width = 130
+                    this.height = 130
+                }
+            })
 
-            this.playerImage = game.playerImgJump
-            this.width = 130
-            this.height = 130
-        } else {
+        } else if (this.y === 700 - this.height) {
+
             this.playerImage = game.playerImgRun
             this.width = 150
             this.height = 150
         }
+        game.fruits.forEach((fruit) => {
+            if (fruit.collision(game.player) && this.y < 700 - this.height || fruit.collision(game.player) && this.y === 700 - this.height) {
+                this.playerImage = game.playerSecondAttack
+            }
+        })
         image(this.playerImage, this.x, this.y, this.width, this.height)
 
     }
@@ -41,7 +47,7 @@ class Player {
 
     jump() {
 
-        this.velocity = - 8
+        this.velocity = - 10
     }
 
     moveLeft() {
@@ -53,17 +59,17 @@ class Player {
 
         }
 
+
     }
 
 
     moveRight() {
-        if (this.x >= 650) {
-            this.x = 700
+        if (this.x >= 600) {
+            this.x = 600
         } else {
             this.x += 2
             console.log('moving right')
 
         }
-
     }
 }
