@@ -25,8 +25,8 @@ class Fruits {
 
         if (dist(fruitX, fruitY, playerX, playerY) > 50) {
             return false
-        } else {
 
+        } else {
 
             game.score()
             return true

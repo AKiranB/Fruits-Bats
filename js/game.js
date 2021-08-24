@@ -2,6 +2,7 @@ class Game {
 
     constructor() {
         this.fruits = []
+        this.bats = []
     }
 
 
@@ -46,6 +47,8 @@ class Game {
 
         ]
 
+        this.batImage = loadImage('/assets/fruits/bat1.gif')
+
 
 
     }
@@ -57,13 +60,16 @@ class Game {
         this.background.draw()
         this.player.draw()
         // this.fruit.draw()
-
+        // if (this.frameCount % 1000 === 0) {
+        //     this.bats.push(new Bat())
+        // }
 
         if (frameCount % 150 === 0 || frameCount % 375 === 0 || frameCount % 1000 === 0) {
             this.fruits.push(new Fruits(this.fruitsImg[Math.floor(Math.random() * 5)].src))
 
         }
 
+        console.log(frameCount)
         this.fruits.forEach(fruit => {
 
             fruit.draw()

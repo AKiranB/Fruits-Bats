@@ -14,12 +14,6 @@ class Background {
 
                 img.x = 0;
             }
-
         })
-
-
-
-
     }
-
 }
