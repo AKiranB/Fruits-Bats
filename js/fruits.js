@@ -5,8 +5,8 @@ class Fruits {
         this.image = image
         this.x = 400
         this.y = (Math.random() * 600)
-        this.width = 60
-        this.height = 60
+        this.width = 55
+        this.height = 55
     }
 
     draw() {

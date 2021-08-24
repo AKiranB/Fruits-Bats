@@ -30,7 +30,7 @@ class Game {
 
 
         this.playerImgRun = loadImage('../assets/character/running-girl-gif.gif')
-        this.playerImgIdle = loadImage('../assets/character/anime-girl-attack2.gif')
+        this.playerImgJump = loadImage('../assets/character/anime-girl-attack2.gif')
         this.playerSecondAttack = loadImage('../assets/character/anime-girl-attack.gif')
 
         this.fruitsImg = [
@@ -71,6 +71,7 @@ class Game {
             if (fruit.collision(this.player) || fruit.x < 0) {
 
                 return false
+
             } else {
 
                 this.player.playerCollision()

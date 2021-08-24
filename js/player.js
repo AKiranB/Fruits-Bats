@@ -26,7 +26,7 @@ class Player {
         }
         if (this.y < 700 - this.height) {
 
-            this.playerImage = game.playerImgIdle
+            this.playerImage = game.playerImgJump
             this.width = 130
             this.height = 130
         } else {
@@ -58,7 +58,6 @@ class Player {
 
     moveRight() {
         if (this.x >= 650) {
-
             this.x = 700
         } else {
             this.x += 2
