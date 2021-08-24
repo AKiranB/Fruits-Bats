@@ -9,6 +9,7 @@ class Game {
 
         this.background = new Background();
         this.player = new Player();
+        this.timer()
 
     }
 
@@ -37,9 +38,12 @@ class Game {
         this.fruitsImg = [
 
 
-            { src: loadImage('assets/character/fruit2.png') },
-            { src: loadImage('assets/character/fruit3.png') },
-            { src: loadImage('assets/character/fruit4.png') },
+            { src: loadImage('assets/fruits/fruit2.png') },
+            { src: loadImage('assets/fruits/fruit3.png') },
+            { src: loadImage('assets/fruits/fruit4.png') },
+            { src: loadImage('assets/fruits/fruit5.png') },
+            { src: loadImage('assets/fruits/fruit6.png') },
+
         ]
 
 
@@ -55,8 +59,8 @@ class Game {
         // this.fruit.draw()
 
 
-        if (frameCount % 150 === 0) {
-            this.fruits.push(new Fruits(this.fruitsImg[Math.floor(Math.random() * 3)].src))
+        if (frameCount % 150 === 0 || frameCount % 375 === 0 || frameCount % 1000 === 0) {
+            this.fruits.push(new Fruits(this.fruitsImg[Math.floor(Math.random() * 5)].src))
 
         }
 
@@ -76,17 +80,41 @@ class Game {
             } else {
 
 
-
-
                 return true
 
             }
 
         })
 
+    }
 
 
+    score() {
+        this.player.score += 10
+        let score = document.querySelector('.score')
+        score.innerText = "Score:" + " " + this.player.score
 
+    }
+
+    timer() {
+        let timeleft = 120
+        var GameTimer = setInterval(function () {
+
+
+            if (timeleft <= 0) {
+                clearInterval(GameTimer);
+            }
+            let timer = document.getElementById("timer")
+            let time = 120
+            timer.innerText = `Timer: 00: ${time - timeleft}`
+            timeleft -= 1;
+            if (timeleft <= 60) {
+                timer.innerText = `Timer: 01 :${time - timeleft - 61}`
+            }
+            // if (timeleft === 0) {
+            //     console.log('its over')
+            // }
+        }, 1000);
     }
 
 }

@@ -27,9 +27,8 @@ class Fruits {
             return false
         } else {
 
-            game.player.score += 10
-            let score = document.querySelector('.score')
-            score.innerText = "Score:" + " " + game.player.score
+
+            game.score()
             return true
         }
 

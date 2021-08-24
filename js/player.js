@@ -2,14 +2,14 @@ class Player {
 
     constructor() {
 
-        this.gravity = 0.4
+        this.gravity = 0.5
         this.velocity = 0
         this.width = 150
         this.height = 150
         this.x = 0
         this.y = 700 - this.height
         this.playerImage = game.playerImgRun
-        this.score = 10
+        this.score = 0
     }
 
 

@@ -8,6 +8,8 @@ function preload() {
     game.preLoadGame();
 }
 
+
+
 function setup() {
 
     createCanvas(700, 700);
@@ -39,3 +41,5 @@ function keyPressed() {
 
 
 }
+
+
