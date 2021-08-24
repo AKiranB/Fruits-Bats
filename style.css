@@ -7,18 +7,22 @@ body {
     background-color: black;
   }
 
+  h3{
+    color:white
+  }
 
   h1{
 
     color:white;
-    font-size: 3em;
+    font-size: 2.5em;
+    text-decoration:white
   
   }
 
   side{
 
     color:white;
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   p {

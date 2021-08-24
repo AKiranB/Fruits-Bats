@@ -108,13 +108,13 @@ class Game {
             let time = 120
             timer.innerText = `Timer: 00: ${time - timeleft}`
             timeleft -= 1;
-            if (timeleft <= 60) {
+            if (timeleft < 60) {
                 timer.innerText = `Timer: 01 :${time - timeleft - 61}`
             }
-            // if (timeleft === 0) {
-            //     console.log('its over')
-            // }
+            console.log(timeleft)
         }, 1000);
+
+
     }
 
 }
