@@ -1,15 +1,15 @@
-class Bat {
-    constructor() {
+// class Bat {
+//     constructor() {
 
-        this.x = 720
-        this.y = Math.floor(Math.random() * 700)
+//         this.x = 720
+//         this.y = Math.floor(Math.random() * 700)
 
-    }
+//     }
 
-    draw() {
+//     draw() {
 
-        image(game.batImage, this.x, this.y, 50, 50)
-    }
+//         image(game.batImage, this.x, this.y, 50, 50)
+//     }
 
 
-}
+// }
