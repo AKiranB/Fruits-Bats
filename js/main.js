@@ -5,8 +5,8 @@ let song;
 let ambience;
 function preload() {
     game.preLoadGame();
-    song = loadSound('/assets/sound/music.mp3')
-    ambience = loadSound('/assets/sound/ambience.mp3')
+    song = loadSound('assets/sound/music.mp3')
+    ambience = loadSound('assets/sound/ambience.mp3')
 
 }
 
