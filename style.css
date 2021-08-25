@@ -27,5 +27,6 @@ body {
 
   p {
 
-    color: white
+    color: white;
+    font-size: 1em;
   }
