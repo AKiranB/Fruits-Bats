@@ -17,7 +17,7 @@ class Game {
 
 
     preLoadGame() {
-
+        //background imgs
         this.backgroundImg = [
             { src: loadImage('assets/background/Hills-Layer-01.png'), x: 0, speed: 0 },
             // { src: loadImage('../assets/background/sky.png'), x: 0, speed: 0 },
@@ -30,12 +30,15 @@ class Game {
 
         ]
 
+        //player imgs
 
         this.playerImgRun = loadImage('assets/character/running-girl-gif.gif')
-        this.playerImgRunLeft = loadImage('assets/character/running-girl-gif-inverted.gif')
         this.playerImgJump = loadImage('assets/character/anime-girl-attack2.gif')
         this.playerSecondAttack = loadImage('assets/character/anime-girl-attack.gif')
 
+
+
+        //fruit imgs
         this.fruitsImg = [
 
 
@@ -47,7 +50,9 @@ class Game {
 
         ]
 
-        // this.batImage = loadImage('assets/fruits/bat1.gif')
+
+        //bat img
+        this.batImage = loadImage('assets/fruits/bat1.gif')
 
 
 
@@ -59,37 +64,57 @@ class Game {
         clear();
         this.background.draw()
         this.player.draw()
-        // this.fruit.draw()
-        // if (this.frameCount % 1000 === 0) {
-        //     this.bats.push(new Bat())
-        // }
 
+
+        //spawning the bats and fruit
         if (frameCount % 150 === 0 || frameCount % 375 === 0 || frameCount % 1000 === 0) {
             this.fruits.push(new Fruits(this.fruitsImg[Math.floor(Math.random() * 5)].src))
 
         }
+        if (frameCount % 500 === 0) {
+            this.bats.push(new Bat())
+        }
 
         console.log(frameCount)
+
+        //drawing each bat and fruit
+        this.bats.forEach(bat => {
+
+            bat.draw()
+        })
         this.fruits.forEach(fruit => {
 
             fruit.draw()
 
         })
 
-
+        //removing fruits when off screen and colliding with player
         this.fruits = this.fruits.filter((fruit) => {
 
-            if (fruit.collision(this.player) || fruit.x < 0) {
+            if (fruit.collision(this.player) || fruit.x < -50) {
 
                 return false
 
             } else {
 
-
                 return true
 
             }
 
+        })
+
+        //removing bats when off screen or collidng with player
+
+        this.bats = this.bats.filter((bat) => {
+
+            if (bat.collision(this.player) || bat.x < -50) {
+
+                return false
+
+            } else {
+
+                return true
+            }
         })
 
     }

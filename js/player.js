@@ -4,12 +4,13 @@ class Player {
 
         this.gravity = 0.5
         this.velocity = 0
-        this.width = 150
-        this.height = 150
+        this.width = 180
+        this.height = 180
         this.x = 0
         this.y = 700 - this.height
         this.playerImage = game.playerImgRun
         this.score = 0
+        this.hp = 100;
     }
 
 
@@ -23,15 +24,15 @@ class Player {
             game.fruits.forEach((fruit) => {
                 if (!fruit.collision(game.player) && this.y < 700 - this.height) {
                     this.playerImage = game.playerImgJump
-                    this.width = 130
-                    this.height = 130
+                    this.width = 160
+                    this.height = 160
                 }
             })
         } else if (this.y === 700 - this.height) {
 
             this.playerImage = game.playerImgRun
-            this.width = 150
-            this.height = 150
+            this.width = 180
+            this.height = 180
         }
         game.fruits.forEach((fruit) => {
             if (fruit.collision(game.player) && this.y < 700 - this.height ||
@@ -67,5 +68,14 @@ class Player {
             this.x += 2
             console.log('moving right')
         }
+    }
+
+
+    damage() {
+
+        this.hp -= 10
+        let hitPoints = document.querySelector('.hp')
+        hitPoints.innerText = 'Health:' + ' ' + this.hp
+
     }
 }

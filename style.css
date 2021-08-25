@@ -8,21 +8,24 @@ body {
   }
 
   h3{
-    color: red
+    color: white;
   }
 
   h1{
 
     color:white;
     font-size: 2.5em;
-    text-decoration:white
+    text-decoration:white;
+    margin-bottom: 10px
   
   }
 
-  side{
+ span{
 
     color:white;
     font-size: 1.5em;
+    color: red
+
   }
 
   p {
