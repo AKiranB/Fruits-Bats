@@ -47,7 +47,7 @@ class Game {
 
         ]
 
-        this.batImage = loadImage('/assets/fruits/bat1.gif')
+        this.batImage = loadImage('assets/fruits/bat1.gif')
 
 
 
