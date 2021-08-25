@@ -31,6 +31,7 @@ class Game {
         this.playerImgRun = loadImage('assets/character/running-girl-gif.gif')
         this.playerImgJump = loadImage('assets/character/anime-girl-attack2.gif')
         this.playerSecondAttack = loadImage('assets/character/anime-girl-attack.gif')
+        this.playerTakeDamage = loadImage('assets/character/anime-girl-damage.gif')
 
         //fruit imgs
         this.fruitsImg = [
@@ -42,7 +43,6 @@ class Game {
             { src: loadImage('assets/fruits/fruit6.png') },
 
         ]
-
         //bat img
         this.batImage = loadImage('assets/fruits/bat1.gif')
 
@@ -58,11 +58,16 @@ class Game {
             this.fruits.push(new Fruits(this.fruitsImg[Math.floor(Math.random() * 5)].src))
 
         }
-        if (frameCount % 500 === 0) {
-            this.bats.push(new Bat())
+        //Past a certain point, the bats start to spawn faster and move faster
+        if (frameCount < 3500) {
+            if (frameCount % 500 === 0 || frameCount % 1500 === 0) {
+                this.bats.push(new Bat())
+            }
+        } else if (frameCount > 3500) {
+            if (frameCount % 300 === 0 || frameCount % 1000 === 0) {
+                this.bats.push(new Bat())
+            }
         }
-
-        // console.log(frameCount)
 
         //drawing each bat and fruit
         this.bats.forEach(bat => {
@@ -89,7 +94,6 @@ class Game {
         })
 
         //removing bats when off screen or collidng with player
-
         this.bats = this.bats.filter((bat) => {
 
             if (bat.collision(this.player) || bat.x < -50) {
@@ -100,8 +104,9 @@ class Game {
             }
         })
 
-        if (this.player.hp === 0) {
+        if (this.player.hp <= 0) {
             let heading = document.querySelector('.heading')
+            this.player.hp = 0;
             heading.innerText = 'You died'
             noLoop()
         }
@@ -135,7 +140,7 @@ class Game {
                 timer.innerText = `Timer: 01 :${time - timeleft - 61}`
             }
 
-            if (timeleft === 0 && this.player.score < 50) {
+            if (timeleft === -1 && this.player.score < 50) {
                 heading.innerText = 'You Lose'
                 console.log(this.player.score)
                 heading.classList.add('lose')
@@ -143,7 +148,7 @@ class Game {
 
             }
 
-            if (timeleft === 0 && this.player.score > 50) {
+            if (timeleft === -1 && this.player.score > 50) {
                 heading.innerText = 'You win'
                 heading.classList.add('win')
             }

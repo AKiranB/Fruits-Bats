@@ -34,18 +34,23 @@ class Player {
             this.width = 180
             this.height = 180
         }
+
         game.fruits.forEach((fruit) => {
             if (fruit.collision(game.player) && this.y < 700 - this.height ||
                 fruit.collision(game.player) && this.y === 700 - this.height) {
                 this.playerImage = game.playerSecondAttack
             }
         })
+        game.bats.forEach((bat) => {
+            if (bat.collision(game.player)) {
+                this.playerImage = game.playerTakeDamage
+            }
+        })
+
         image(this.playerImage, this.x, this.y, this.width, this.height)
 
 
-
     }
-
 
     jump() {
         this.velocity = - 10
@@ -59,7 +64,6 @@ class Player {
             // console.log('moving left')
         }
 
-
     }
 
 
@@ -72,13 +76,11 @@ class Player {
         }
     }
 
-
     damage() {
 
         this.hp -= 30
         let hitPoints = document.querySelector('.hp')
         hitPoints.innerText = 'Health:' + ' ' + this.hp
         // console.log('took damage')
-
     }
 }
