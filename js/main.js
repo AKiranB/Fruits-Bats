@@ -22,7 +22,6 @@ function setup() {
         if (time <= 0) {
             clearInterval(GameTimer);
         }
-        // let setTime = 120
         time -= 1;
         if (time < 0) {
             // song.stop()
@@ -46,6 +45,7 @@ function draw() {
 
         game.player.moveRight()
     }
+
 }
 
 function keyPressed() {
@@ -55,8 +55,6 @@ function keyPressed() {
 
         game.player.jump()
     }
-
-
 
 }
 

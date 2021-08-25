@@ -5,7 +5,6 @@ class Game {
         this.bats = []
     }
 
-
     setupGame() {
 
         this.background = new Background();
@@ -13,8 +12,6 @@ class Game {
         this.timer()
 
     }
-
-
 
     preLoadGame() {
         //background imgs
@@ -29,18 +26,14 @@ class Game {
             { src: loadImage('assets/background/Hills-Layer-05.png'), x: 0, speed: 4 }
 
         ]
-
         //player imgs
 
         this.playerImgRun = loadImage('assets/character/running-girl-gif.gif')
         this.playerImgJump = loadImage('assets/character/anime-girl-attack2.gif')
         this.playerSecondAttack = loadImage('assets/character/anime-girl-attack.gif')
 
-
-
         //fruit imgs
         this.fruitsImg = [
-
 
             { src: loadImage('assets/fruits/fruit2.png') },
             { src: loadImage('assets/fruits/fruit3.png') },
@@ -50,21 +43,15 @@ class Game {
 
         ]
 
-
         //bat img
         this.batImage = loadImage('assets/fruits/bat1.gif')
 
-
-
     }
-
-
 
     drawGame() {
         clear();
         this.background.draw()
         this.player.draw()
-
 
         //spawning the bats and fruit
         if (frameCount % 150 === 0 || frameCount % 375 === 0 || frameCount % 1000 === 0) {
@@ -75,7 +62,7 @@ class Game {
             this.bats.push(new Bat())
         }
 
-        console.log(frameCount)
+        // console.log(frameCount)
 
         //drawing each bat and fruit
         this.bats.forEach(bat => {
@@ -92,11 +79,9 @@ class Game {
         this.fruits = this.fruits.filter((fruit) => {
 
             if (fruit.collision(this.player) || fruit.x < -50) {
-
                 return false
 
             } else {
-
                 return true
 
             }
@@ -108,14 +93,18 @@ class Game {
         this.bats = this.bats.filter((bat) => {
 
             if (bat.collision(this.player) || bat.x < -50) {
-
                 return false
 
             } else {
-
                 return true
             }
         })
+
+        if (this.player.hp === 0) {
+            let heading = document.querySelector('.heading')
+            heading.innerText = 'You died'
+            noLoop()
+        }
 
     }
 
@@ -128,23 +117,38 @@ class Game {
     }
 
     timer() {
-        let timeleft = 120
-        var GameTimer = setInterval(function () {
+        var timeleft = 120
+        let heading = document.querySelector('.heading')
 
+        var GameTimer = setInterval(() => {
 
             if (timeleft <= 0) {
                 clearInterval(GameTimer);
             }
+
             let timer = document.getElementById("timer")
             let time = 120
             timer.innerText = `Timer: 00: ${time - timeleft}`
             timeleft -= 1;
+
             if (timeleft < 60) {
                 timer.innerText = `Timer: 01 :${time - timeleft - 61}`
             }
-            console.log(timeleft)
-        }, 1000);
 
+            if (timeleft === 0 && this.player.score < 50) {
+                heading.innerText = 'You Lose'
+                console.log(this.player.score)
+                heading.classList.add('lose')
+
+
+            }
+
+            if (timeleft === 0 && this.player.score > 50) {
+                heading.innerText = 'You win'
+                heading.classList.add('win')
+            }
+
+        }, 1000);
 
     }
 

@@ -27,13 +27,14 @@ class Bat {
         let playerX = playerInfo.x + playerInfo.width / 2
         let playerY = playerInfo.y + playerInfo.height / 2
 
-        if (dist(batX, batY, playerX, playerY) > 50) {
+        if (dist(batX, batY, playerX, playerY) > 60) {
 
             return false
 
         } else {
 
             game.player.damage()
+
             return true
         }
 

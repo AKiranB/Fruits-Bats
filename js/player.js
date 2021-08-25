@@ -42,6 +42,8 @@ class Player {
         })
         image(this.playerImage, this.x, this.y, this.width, this.height)
 
+
+
     }
 
 
@@ -54,7 +56,7 @@ class Player {
             this.x = 0
         } else {
             this.x -= 2
-            console.log('moving left')
+            // console.log('moving left')
         }
 
 
@@ -66,16 +68,17 @@ class Player {
             this.x = 600
         } else {
             this.x += 2
-            console.log('moving right')
+            // console.log('moving right')
         }
     }
 
 
     damage() {
 
-        this.hp -= 10
+        this.hp -= 30
         let hitPoints = document.querySelector('.hp')
         hitPoints.innerText = 'Health:' + ' ' + this.hp
+        // console.log('took damage')
 
     }
 }
