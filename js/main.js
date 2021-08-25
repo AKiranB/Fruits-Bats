@@ -2,20 +2,23 @@ const game = new Game();
 
 
 let song;
+let ambience;
 function preload() {
     game.preLoadGame();
-    // song = loadSound('/assets/sound/Gigakoops.mp3')
+    song = loadSound('/assets/sound/music.mp3')
+    ambience = loadSound('/assets/sound/ambience.mp3')
 
 }
 
-// song.volume(1)
+
 
 function setup() {
 
     createCanvas(700, 700);
     game.setupGame()
 
-    // song.play()
+    song.play()
+    ambience.play()
 
     let time = 120
     var GameTimer = setInterval(function () {
@@ -24,7 +27,8 @@ function setup() {
         }
         time -= 1;
         if (time < 0) {
-            // song.stop()
+            song.stop()
+            ambience.stop()
             noLoop()
         }
 

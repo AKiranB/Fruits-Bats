@@ -140,7 +140,7 @@ class Game {
                 timer.innerText = `Timer: 01 :${time - timeleft - 61}`
             }
 
-            if (timeleft === -1 && this.player.score < 50) {
+            if (timeleft === -1 && this.player.score < 1200) {
                 heading.innerText = 'You Lose'
                 console.log(this.player.score)
                 heading.classList.add('lose')
@@ -148,7 +148,7 @@ class Game {
 
             }
 
-            if (timeleft === -1 && this.player.score > 50) {
+            if (timeleft === -1 && this.player.score > 1200) {
                 heading.innerText = 'You win'
                 heading.classList.add('win')
             }
