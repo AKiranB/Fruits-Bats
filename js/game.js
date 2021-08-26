@@ -54,16 +54,21 @@ class Game {
 
 
         //sound
-        this.swordSlice = [loadSound('assets/sound/Sword-slice1.mp3'),
-        loadSound('assets/sound/Sword-slice2.mp3'),
-        loadSound('assets/sound/Sword-slice3.mp3'),
-        loadSound('assets/sound/Sword-slice4.mp3')
 
-        ]
+        this.takeDamageBatSFX = loadSound('assets/sound/Bat-impact.mp3')
+        this.swordSlice =
+            [
+                loadSound('assets/sound/Sword-slice1.mp3'),
+                loadSound('assets/sound/Sword-slice2.mp3'),
+                loadSound('assets/sound/Sword-slice3.mp3'),
+                loadSound('assets/sound/Sword-slice4.mp3')
+            ]
 
+        this.winGame = loadSound('assets/sound/You-win.mp3')
     }
 
     drawGame() {
+
         clear();
         this.background.draw()
         this.player.draw()
@@ -88,12 +93,13 @@ class Game {
                 this.bats.push(new Bat())
             }
         }
-
         //spawning fire
 
         if (frameCount % 500 === 0) {
             this.fire.push(new Fire(this.fireImg))
         }
+
+
 
         //drawing fire and adding collision
         this.fire.forEach(fire => {
@@ -145,7 +151,7 @@ class Game {
         //remove fire from aray when off screen
         this.fire = this.fire.filter((fire) => {
 
-            if (fire.x < 50) {
+            if (fire.x < -50) {
                 return false
             } else {
                 return true
@@ -198,6 +204,7 @@ class Game {
             } else if (timeleft === -1 && this.player.score >= 1200 && this.player.hp > 0) {
                 heading.innerText = 'You Win!'
                 heading.classList.add('win')
+                this.winGame.play()
             }
 
         }, 1000);

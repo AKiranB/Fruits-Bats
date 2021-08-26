@@ -52,6 +52,10 @@ class Bat {
 
             game.player.damage()
 
+            if (!game.takeDamageBatSFX.isPlaying()) {
+                game.takeDamageBatSFX.play()
+            }
+
             return true
         }
 
