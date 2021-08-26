@@ -4,7 +4,7 @@ class Fruits {
 
         this.image = image
         this.x = 550
-        this.y = (Math.random() * 600)
+        this.y = (Math.random() * 400)
         this.width = 55
         this.height = 55
     }

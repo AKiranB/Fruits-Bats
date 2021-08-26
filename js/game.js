@@ -14,16 +14,16 @@ class Game {
     }
 
     preLoadGame() {
+        //change the speed of the last image
         //background imgs
         this.backgroundImg = [
             { src: loadImage('assets/background/Hills-Layer-01.png'), x: 0, speed: 0 },
-            // { src: loadImage('../assets/background/sky.png'), x: 0, speed: 0 },
             { src: loadImage('assets/background/Hills-Layer-02.png'), x: 0, speed: 0.8 },
             { src: loadImage('assets/background/castle.png'), x: 5, speed: 0.8 },
             { src: loadImage('assets/background/Hills-Layer-03.png'), x: 0, speed: 1.7 },
             { src: loadImage('assets/background/Hills-Layer-04.png'), x: 0, speed: 3 },
-            { src: loadImage('assets/background/Hills-Layer-06.png'), x: 0, speed: 5 },
-            { src: loadImage('assets/background/Hills-Layer-05.png'), x: 0, speed: 4 }
+            { src: loadImage('assets/background/Hills-Layer-06.png'), x: 0, speed: 4 },
+            { src: loadImage('assets/background/Hills-Layer-05.png'), x: 0, speed: 5 }
 
         ]
         //player imgs
@@ -58,6 +58,7 @@ class Game {
             this.fruits.push(new Fruits(this.fruitsImg[Math.floor(Math.random() * 5)].src))
 
         }
+
         //Past a certain point, the bats start to spawn faster and move faster
         if (frameCount < 3500) {
             if (frameCount % 500 === 0 || frameCount % 1500 === 0) {
@@ -100,6 +101,7 @@ class Game {
                 return false
 
             } else {
+
                 return true
             }
         })
@@ -108,6 +110,7 @@ class Game {
             let heading = document.querySelector('.heading')
             this.player.hp = 0;
             heading.innerText = 'You died'
+            this.timeleft = 0
             noLoop()
         }
 
@@ -133,22 +136,18 @@ class Game {
 
             let timer = document.getElementById("timer")
             let time = 120
-            timer.innerText = `Timer: 00: ${time - timeleft}`
+            timer.innerText = `Timer : 00 : ${time - timeleft}`
             timeleft -= 1;
 
             if (timeleft < 60) {
-                timer.innerText = `Timer: 01 :${time - timeleft - 61}`
+                timer.innerText = `Timer : 01 : ${time - timeleft - 61}`
             }
 
             if (timeleft === -1 && this.player.score < 1200) {
                 heading.innerText = 'You Lose'
                 console.log(this.player.score)
                 heading.classList.add('lose')
-
-
-            }
-
-            if (timeleft === -1 && this.player.score > 1200) {
+            } else if (timeleft === -1 && this.player.score >= 1200 && this.player.hp > 0) {
                 heading.innerText = 'You win'
                 heading.classList.add('win')
             }

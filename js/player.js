@@ -17,6 +17,8 @@ class Player {
     draw() {
         this.velocity += this.gravity
         this.y += this.velocity
+
+        //this entire section is a mess!
         if (this.y >= 700 - this.height) {
             this.y = 700 - this.height
         }
@@ -53,7 +55,10 @@ class Player {
     }
 
     jump() {
-        this.velocity = - 10
+        if (this.y >= 100) {
+            this.velocity = - 10
+        }
+
     }
 
     moveLeft() {

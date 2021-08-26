@@ -17,6 +17,8 @@ function setup() {
     createCanvas(700, 700);
     game.setupGame()
 
+    // song.resume()
+    // ambience.resume()
     song.play()
     ambience.play()
 

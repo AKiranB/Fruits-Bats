@@ -16,12 +16,11 @@ class Bat {
         } else if (frameCount > 3500) {
             this.x -= 8
         }
-
         if (this.y > 300) {
-            this.y += Math.random(Math.floor() * 2)
+            this.y -= Math.random(Math.floor() * 2)
 
         } else if (this.y < 300) {
-            this.y -= Math.random(Math.floor() * 2)
+            this.y += Math.random(Math.floor() * 2)
         }
 
 
@@ -30,7 +29,8 @@ class Bat {
     }
 
 
-    // should ideally have created collision in Game and then added a second param
+    // should ideally have created collision in Game 
+    //and then added a second param for
     // objectInfo, would have saved repeating the code
     collision(playerInfo) {
 
