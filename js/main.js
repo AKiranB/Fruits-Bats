@@ -42,6 +42,7 @@ function setup() {
 
 
 function draw() {
+
     game.drawGame()
     if (keyIsDown(65)) {
 

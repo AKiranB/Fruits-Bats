@@ -83,7 +83,7 @@ class Player {
 
     damage() {
 
-        this.hp -= 30
+        this.hp--
         let hitPoints = document.querySelector('.hp')
         hitPoints.innerText = 'Health:' + ' ' + this.hp
         // console.log('took damage')

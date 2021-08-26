@@ -3,6 +3,7 @@ class Game {
     constructor() {
         this.fruits = []
         this.bats = []
+        this.fire = []
     }
 
     setupGame() {
@@ -46,8 +47,13 @@ class Game {
         //bat img
         this.batImage = loadImage('assets/fruits/bat1.gif')
 
-        //sound
 
+        //fire img
+
+        this.fireImg = loadImage('assets/background/fire2.gif')
+
+
+        //sound
         this.swordSlice = [loadSound('assets/sound/Sword-slice1.mp3'),
         loadSound('assets/sound/Sword-slice2.mp3'),
         loadSound('assets/sound/Sword-slice3.mp3'),
@@ -83,11 +89,27 @@ class Game {
             }
         }
 
-        //drawing each bat and fruit
+        //spawning fire
+
+        if (frameCount % 500 === 0) {
+            this.fire.push(new Fire(this.fireImg))
+        }
+
+        //drawing fire and adding collision
+        this.fire.forEach(fire => {
+
+            fire.draw()
+            fire.collision(this.player)
+        })
+
+        //drawing bat and adding collison
         this.bats.forEach(bat => {
 
             bat.draw()
+            bat.collision(this.player)
         })
+
+        //drawing fruits
         this.fruits.forEach(fruit => {
 
             fruit.draw()
@@ -110,7 +132,8 @@ class Game {
         //removing bats when off screen or collidng with player
         this.bats = this.bats.filter((bat) => {
 
-            if (bat.collision(this.player) || bat.x < -50) {
+            if (bat.x < -50) {
+
                 return false
 
             } else {
@@ -118,6 +141,17 @@ class Game {
                 return true
             }
         })
+
+        //remove fire from aray when off screen
+        this.fire = this.fire.filter((fire) => {
+
+            if (fire.x < 50) {
+                return false
+            } else {
+                return true
+            }
+        })
+
 
         if (this.player.hp <= 0) {
             let heading = document.querySelector('.heading')
@@ -149,6 +183,7 @@ class Game {
 
             let timer = document.getElementById("timer")
             let time = 120
+
             timer.innerText = `Timer : 00 : ${time - timeleft}`
             timeleft -= 1;
 
