@@ -4,7 +4,7 @@ class Fruits {
 
         this.image = image
         this.x = 550
-        this.y = (Math.random() * 400)
+        this.y = (Math.random() * 400) + 100
         this.width = 55
         this.height = 55
     }
@@ -29,6 +29,7 @@ class Fruits {
         } else {
 
             game.score()
+            game.swordSlice[Math.floor(Math.random() * 4)].play()
             return true
         }
 

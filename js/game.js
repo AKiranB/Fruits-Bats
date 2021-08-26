@@ -46,6 +46,15 @@ class Game {
         //bat img
         this.batImage = loadImage('assets/fruits/bat1.gif')
 
+        //sound
+
+        this.swordSlice = [loadSound('assets/sound/Sword-slice1.mp3'),
+        loadSound('assets/sound/Sword-slice2.mp3'),
+        loadSound('assets/sound/Sword-slice3.mp3'),
+        loadSound('assets/sound/Sword-slice4.mp3')
+
+        ]
+
     }
 
     drawGame() {
@@ -66,6 +75,10 @@ class Game {
             }
         } else if (frameCount > 3500) {
             if (frameCount % 300 === 0 || frameCount % 1000 === 0) {
+                this.bats.push(new Bat())
+            }
+        } else if (frameCount > 5000) {
+            if (frameCount % 200 === 0 || frameCount % 800 === 0) {
                 this.bats.push(new Bat())
             }
         }
@@ -144,11 +157,11 @@ class Game {
             }
 
             if (timeleft === -1 && this.player.score < 1200) {
-                heading.innerText = 'You Lose'
+                heading.innerText = 'You Lose!'
                 console.log(this.player.score)
                 heading.classList.add('lose')
             } else if (timeleft === -1 && this.player.score >= 1200 && this.player.hp > 0) {
-                heading.innerText = 'You win'
+                heading.innerText = 'You Win!'
                 heading.classList.add('win')
             }
 

@@ -1,7 +1,7 @@
 class Bat {
     constructor() {
 
-        this.x = 600
+        this.x = 700
         this.y = Math.floor(Math.random() * 500)
         this.width = 80
         this.height = 80
@@ -13,9 +13,13 @@ class Bat {
         console.log(frameCount)
         if (frameCount < 3500) {
             this.x -= 4
-        } else if (frameCount > 3500) {
+        } else if (frameCount < 5000) {
             this.x -= 8
+        } else {
+            this.x -= 10
         }
+
+
         if (this.y > 300) {
             this.y -= Math.random(Math.floor() * 2)
 
