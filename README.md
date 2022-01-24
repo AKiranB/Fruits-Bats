@@ -20,6 +20,5 @@ A ---> Move Left
 </br>
 D ---> Move Right
 </br>
-
 Space ---> Jump
 
